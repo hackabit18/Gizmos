@@ -20,9 +20,6 @@ def download_blob(bucket_name, source_blob_name, destination_file_name):
         source_blob_name,
         destination_file_name))
 
-
-
-
 def detect_handwritten_ocr(path):
     client = vision.ImageAnnotatorClient()
     file_name ='a.jpg'
