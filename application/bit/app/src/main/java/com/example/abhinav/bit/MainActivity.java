@@ -27,6 +27,7 @@ import java.util.Date;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
+    private  static final int ACTIVITY_START_CAMERAAPP=0;
     private Uri file;
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
@@ -34,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
     FirebaseStorage storage;
     StorageReference storageReference;
-    Intent c = new Intent("android.media.action.IMAGE_CAPTURE");
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +53,20 @@ public class MainActivity extends AppCompatActivity {
         imageView=  findViewById(R.id.imgView);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
+
+    public void takePhoto()
+    {
+
+        Intent callCameraApplicationIntent=new Intent();
+        callCameraApplicationIntent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(callCameraApplicationIntent,ACTIVITY_START_CAMERAAPP);
+
     }
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null )
         {
@@ -75,12 +81,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
-            imageView.setImageBitmap(imageBitmap);
-        }
+        else if(requestCode==ACTIVITY_START_CAMERAAPP&& resultCode==RESULT_OK)
+            Toast.makeText(this,"picture taken",Toast.LENGTH_SHORT).show();
+
     }
+
+
 
 
 
@@ -89,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
     private void uploadImage() {
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        final Intent intent = new Intent(this, Main2Activity.class);
+        final Intent copy=new Intent(this, Main3Activity.class);
+
 
         if(file != null)
 
@@ -99,14 +106,15 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            //StorageReference ref = storageReference.child("images/"+ UUID.randomUUID().toString());
+            StorageReference ref = storageReference.child("images/a.jpg");
             ref.putFile(file)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(MainActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
+                            startActivity(copy);
 
 
                         }
@@ -141,9 +149,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void cam(View view) {
+        takePhoto();
 
-        startActivity(c);
+
 
 
     }
+
+
 }
