@@ -1,4 +1,4 @@
-# Team Gizmos
+# CodeOnPaper
 
 ## Idea Description
 
