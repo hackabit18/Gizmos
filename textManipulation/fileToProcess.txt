@@ -1,0 +1,4 @@
+v o i d m a i n () {
+	i n t a;
+	p r i n t f ( "Hello World" );
+}
