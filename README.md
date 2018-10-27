@@ -14,3 +14,9 @@ Android App Scans photo of handwritten peice of code --> Sends request to a DJAN
 * Google Vision API
 * Django
 * Firebase
+
+## The Team 
+ * Ali Asgar Sabir.
+ * Abhinav Jha.
+ * Osama Ashhad Azmi.
+ * Owais Hasnath Ahmed.
