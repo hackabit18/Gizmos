@@ -7,6 +7,8 @@ Well this is basically the underlying idea **CodeOnPaper** .
 
 ## WorkFlow
 
+Android App Scans photo of handwritten peice of code --> Sends request to a DJANGO server that performs OCR (Optical Character Recognition) using Google Vision API --> Server runs a custom script that detects and corrects syntax errors --> Final text file is returned to the device for user to make final changes, compile and run on another API.
+
 ## Technologies Used
 
 * Google Vision API
