@@ -1,0 +1,13 @@
+Django==2.1.2
+google-api-core==1.5.0
+google-auth==1.5.1
+google-cloud-core==0.28.1
+google-cloud-storage==1.13.0
+google-cloud-vision==0.34.0
+google-resumable-media==0.3.1
+googleapis-common-protos==1.5.3
+urllib3==1.23
+grpcio==1.13.0
+gunicorn==19.9.0
+django-heroku==0.3.1
+
