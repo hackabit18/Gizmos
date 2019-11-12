@@ -12,7 +12,7 @@ Learning has no age barriers. The early we start the more time we have to master
 ## Installation
 
 ### Requirements
-* Android KitKat and higher
+* Android KitKat and higher (>4.4)
 
 
 [Get the app here](https://drive.google.com/open?id=1XwSxOZ09ntXjW8ngqldEI85Z8WpLnH05)
@@ -31,8 +31,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## The Team
-* [Ali Sabir](https://github.com/sabirali2560)
 * [Abhinav Jha](https://github.com/aBITnav)
+* [Ali Sabir](https://github.com/sabirali2560)
 * [Osama Azmi](https://github.com/Samuelimza)
 * [Owais Hasnath Ahmed](https://github.com/owais34)
 
