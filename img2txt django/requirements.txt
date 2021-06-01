@@ -6,7 +6,7 @@ google-cloud-storage==1.13.0
 google-cloud-vision==0.34.0
 google-resumable-media==0.3.1
 googleapis-common-protos==1.5.3
-urllib3==1.23
+urllib3==1.26.5
 grpcio==1.13.0
 gunicorn==19.9.0
 django-heroku==0.3.1
